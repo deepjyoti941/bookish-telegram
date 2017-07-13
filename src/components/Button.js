@@ -9,12 +9,12 @@ import {
 export default class Button extends Component {
 
   render() {
-    const {onPress} = this.props;
+    const {onPress, children} = this.props;
     const {textStyle,buttonStyle} = styles;
 
     return (
       <TouchableOpacity onPress={onPress} style={buttonStyle}>
-        <Text style={textStyle}>Click me!</Text>
+        <Text style={textStyle}> {children} </Text>
       </TouchableOpacity>
     );
   }
