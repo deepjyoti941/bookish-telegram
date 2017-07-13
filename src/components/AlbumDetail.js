@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  Image
+  Image,
+  Linking
 } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
+import Button from './Button';
 
 // Make a component
 export default class AlbumDetail extends Component {
@@ -17,7 +19,8 @@ export default class AlbumDetail extends Component {
       title,
       artist,
       thumbnail_image,
-      image
+      image,
+      url
     } = this.props.album;
 
     const {
@@ -46,6 +49,10 @@ export default class AlbumDetail extends Component {
           <Image
             style={imageStyle}
             source={ {uri: image}}/>
+        </CardSection>
+
+        <CardSection>
+          <Button onPress={ () => Linking.openURL(url)}/>
         </CardSection>
       </Card>
     );
